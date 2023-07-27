@@ -3,9 +3,10 @@
   "name": "Group manager for chrome",
   "description": "Makes it easier to work with groups in chrome",
   "version": "1.0",
+  "author": "YaguraWizz",
 
   "action": {
-    "default_popup": "scripts/popup.html",
+    "default_popup": "html/popup.html",
     "default_icon": "img/128.png"
   },
 
@@ -15,9 +16,21 @@
   "content_scripts": [
     {
       "matches": ["https://*/*"],
-      "js": ["index.js"]
+      "js": ["js/content.js"]
     }
   ],
 
-  "permissions": ["tabs", "sessions", "tabGroups"]
+  "permissions": [
+    "tabs",
+    "activeTab",
+    "bookmarks",
+    "tabGroups",
+    "scripting",
+    "storage",
+    "alarms",
+    "notifications"
+  ],
+  "background": {
+    "service_worker": "js/background.js"
+  }
 }

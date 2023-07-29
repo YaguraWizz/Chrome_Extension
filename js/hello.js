@@ -1,3 +1,4 @@
+/*
 const onClick = async (e) => {
   let queryOptions = { active: true, lastFocusedWindow: true };
   const [tab] = await chrome.tabs.query(queryOptions);
@@ -9,3 +10,4 @@ if (btn) {
   btn.addEventListener("click", onClick);
 }
  
+*/

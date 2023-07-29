@@ -1,24 +1,13 @@
 {
   "manifest_version": 3,
-  "name": "Group manager for chrome",
-  "description": "Makes it easier to work with groups in chrome",
-  "version": "1.0",
+  "name": "__MSG_name__",
+  "description": "__MSG_description__",
+  "version": "1.0.0",
   "author": "YaguraWizz",
-
-  "action": {
-    "default_popup": "html/popup.html",
-    "default_icon": "img/128.png"
-  },
-
+  "default_locale": "en",
   "icons": {
     "128": "img/128.png"
   },
-  "content_scripts": [
-    {
-      "matches": ["https://*/*"],
-      "js": ["js/content.js"]
-    }
-  ],
 
   "permissions": [
     "tabs",
@@ -28,8 +17,15 @@
     "scripting",
     "storage",
     "alarms",
-    "notifications"
+    "notifications",
+    "storage"
   ],
+
+  "action": {
+    "default_popup": "html/popup.html",
+    "default_icon": "img/128.png"
+  },
+
   "background": {
     "service_worker": "js/background.js"
   }

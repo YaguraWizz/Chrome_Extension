@@ -1,0 +1,10 @@
+{
+    "name":{
+        "message":"Group manager for chrome",
+        "description":"Extension name"
+    },
+    "description":{
+        "message":"Makes it easier to work with groups in chrome",
+        "description":"Extension description"
+    }
+}

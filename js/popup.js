@@ -1,23 +1,56 @@
-// Регистрируем обработчик изменений
-chrome.storage.onChanged.addListener(storageChanged);
+function processSavedData() {
+  // Здесь вы можете получить сохраненные данные
+  chrome.storage.local.get("myKey", function (result) {
+    var storedJsonString = result.myKey;
+    console.log("Получены данные из хранилища:", storedJsonString);
+    // Продолжайте обработку данных здесь
 
-// Определяем функцию обработчика изменений хранилища
-function storageChanged(changes, areaName) {
-  if (areaName === "local") {
-    console.log("Произошло изменение в локальном хранилище:", changes);
-    chrome.storage.local.get("myKey", function (result) {
-      var storedJsonString = result.myKey;
+    var storedObject = JSON.parse(storedJsonString);
+    var listElementFreePages = document.getElementById("listFreePages");
+    var listElementGroups = document.getElementById("listGroups");
+    listElementFreePages.innerHTML = "";
+    listElementGroups.innerHTML = "";
 
-      // Преобразовываем строку JSON обратно в объект
-      var storedObject = JSON.parse(storedJsonString);
-      var listElement = document.getElementById("titleList");
-      // Проходим по элементам данных и добавляем их в список
-      storedObject.items.forEach(function (item) {
+    // Проверяем наличие элементов pages и groups
+
+    if ("groups" in storedObject) {
+      for (var groupId in storedObject.groups) {
+        var group = storedObject.groups[groupId];
+        group.forEach(function (page) {
+          var listItem = document.createElement("li");
+          var listUrl = document.createElement("a");
+          
+          listUrl.href = page.geturl;
+          listUrl.textContent = page.title;
+          listItem.appendChild(listUrl);
+          listElementGroups.appendChild(listItem);
+        });
+      }
+    }
+    
+    if ("pages" in storedObject) {
+      storedObject.pages.forEach(function (page) {
         var listItem = document.createElement("li");
-        listItem.textContent = item;
-        listElement.appendChild(listItem);
+        var listUrl = document.createElement("a");
+
+        listUrl.href = page.geturl;
+        listUrl.textContent = page.title;
+        listItem.appendChild(listUrl);
+        listElementFreePages.appendChild(listItem);
       });
-      console.log(storedObject);
-    });
-  }
+    }
+    console.log(storedObject);
+  });
 }
+
+function buttonHandler() {
+  // Выполните необходимые действия при нажатии кнопки
+  console.log("Кнопка была нажата!");
+  processSavedData();
+}
+
+// Находим кнопку по идентификатору
+var button = document.getElementById("myButton");
+
+// Добавляем обработчик события при нажатии на кнопку
+button.addEventListener("click", buttonHandler);

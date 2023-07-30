@@ -5,97 +5,70 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>TabGroups Extension</title>
-    <style>
-      body {
-        margin: 0;
-        padding: 0;
-      }
-
-      .content {
-        padding: 20px;
-      }
-
-      .content h2,
-      .content .col {
-        white-space: nowrap;
-      }
-
-      .row {
-        display: flex;
-        align-items: center;
-      }
-
-      .col {
-        padding: 10px 0;
-      }
-
-      .help-page,
-      .settings-page {
-        cursor: pointer;
-      }
-
-      .help-page:hover,
-      .settings-page:hover {
-        text-decoration: underline;
-      }
-
-      .clock-option {
-        display: flex;
-        justify-content: center;
-        align-items: center;
-      }
-
-      .clock-ckeckbox {
-        margin-left: 10px;
-      }
-
-      /**/
-      .row_new {
-        border: 1px solid rgb(67, 69, 168);
-      }
-
-
-
-    </style>
+    <link rel="stylesheet" href="css/style" />
+    <link rel="stylesheet" href="../css/style.css" type="text/css" />
   </head>
 
   <body>
-    <div class="content">
-      <h2>EasyIT Extension</h2>
+    <div class="wrapper">
+        <nav class="navbar">
+            <div class="container">
+                <div class="logo">
+                    <a href="popup.html" class="icon">
+                        <img
+                            src="../img/128.png"
+                            alt="TabGroups Extension"
+                            class="logo-img"
+                        />
+                    </a>
+                </div>
+
+                <div class="bar">
+                    <div class="bar-p">
+                        <h2>EasyIT Extension</h2>
+                    </div>
+
+                    <ul class="navbar-menu">
+                        <li><a href="hello.html">help</a></li>
+                        <li><a href="settings.html">settings</a></li>
+                        <li><a href="contacts.html">contacts</a></li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+
+        <div class="content">
+            <div class="inner-content">
+                <ul id="listFreePages"></ul>
+                <hr>
+                <ul id="listGroups"></ul>
+            </div>
+        </div>
+
+        <div class="foo">
+            <div class="inner-foo">
+                <p>спасибо что используете наще расширение</p>
+                <button id="myButton" class="button">Обновить список</button>
+            </div>
+        </div>
       
-      <div class="row_new">
-        <ul id="titleList"></ul>
-      </div>
-
-      <!--
-
-      <div class="row">
-        <div class="col settings-page">Настройки</div>
-      </div>
-      <div class="row">
-        <div class="col help-page">Открыть справку</div>
-      </div>
-      <div class="row">
-        <div class="col clock-option">
-          <span>Показывать часы на странице</span
-          ><input type="checkbox" class="clock-ckeckbox" />
-        </div>
-      </div>
-      <div class="row">
-        <div class="col change-background">
-          <span>Установить цвет фона</span>
-          <input type="text" class="input-color" />
-          <input type="button" class="color-button" value="Ok" />
-        </div>
-      </div>
-      <div class="row">
-        <div class="col change-alert">
-          <span>Напомнить через (минут):</span>
-          <input type="number" class="input-alert" />
-          <input type="button" class="alert-button" value="Ok" />
-        </div>-->
-      </div>
     </div>
     <script src="/js/popup.js"></script>
+    
+       <!--
+         <ul id="titleList">
+          <li>Расширения</li>
+          <li>ooo - Поиск в Google</li>
+          <li>Перевод по фото онлайн с английского и других языков – Яндекс Переводчик</li>
+          <li>Планирование: setTimeout и setInterval</li>
+          <li>переводчик - Поиск в Google</li>
+          <li>ФУНКЦИИ в JavaScript НА ПРАКТИКЕ | виды функций, стрелочные функции, параметры, аргументы, return - YouTube</li>
+          <li>(98) Функции в JAVASCRIPT. Стрелочные функции, рекурсия, планирование: setTimeout и setInterval. - YouTube</li>
+          <li>Семён Левенсон — Воркшоп: Пишем браузерное расширение с нуля. Часть 1 - YouTube</li></ul>
+      </div>
+
+       -->
+
+
   </body>
 </html>

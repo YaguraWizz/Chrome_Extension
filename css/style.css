@@ -1,61 +1,72 @@
-body {
+body
+{
   margin: 0;
   padding: 0;
-  min-height: 700px;
-  border: 1px solid rgb(67, 69, 168);
+  max-width: 450px;
+  
 }
-
-.content {
-  padding: 20px;
-  border: 1px solid rgb(67, 69, 168);
-}
-
-.content h2,
-.content .col {
-  white-space: nowrap;
-  border: 1px solid rgb(67, 69, 168);
-}
-
-.row {
+.wrapper{
+  width: 100%;
+  height: 600px;
   display: flex;
-  align-items: center;
+  flex-direction: column;
+}
+
+
+
+.navbar{
+  max-width: 450px;
+  max-height: 128px;
   border: 1px solid rgb(67, 69, 168);
 }
 
-.col {
-  padding: 10px 0;
-}
-
-.help-page,
-.settings-page {
-  cursor: pointer;
-}
-
-.help-page:hover,
-.settings-page:hover {
-  text-decoration: underline;
-}
-
-.clock-option {
+.navbar, .container{
+  height: inherit;
   display: flex;
-  justify-content: center;
+  
   align-items: center;
+
 }
 
-.clock-ckeckbox {
-  margin-left: 10px;
-}
 
-/**/
-.row_new {
+
+.logo{
   border: 1px solid rgb(67, 69, 168);
 }
 
-/* Опциональные стили для кнопки */
-.button {
-  padding: 10px 20px;
-  background-color: #4caf50;
-  color: white;
-  border: none;
-  cursor: pointer;
+.bar{
+  
+  border: 1px solid rgb(67, 69, 168);
+  
 }
+
+.navbar-menu {
+  list-style-type: none;
+  padding-left: 0;
+  margin-bottom: 0;
+  text-align: center;
+}
+
+.navbar-menu li {
+  display: inline-block;
+}
+
+.navbar-menu li a {
+  display: inline-block;
+}
+
+
+.content{
+  margin-top: 15px ;
+  margin-bottom: 15px;
+  flex: 1 1 auto;
+  border: 1px solid rgb(67, 69, 168);
+}
+
+.foo{
+ position: relative;
+ text-align: center;
+ border: 1px solid rgb(67, 69, 168);
+}
+
+

@@ -6,27 +6,38 @@ function processSavedData() {
     // Продолжайте обработку данных здесь
 
     var storedObject = JSON.parse(storedJsonString);
-    var listElement = document.getElementById("titleList");
-    listElement.innerHTML = "";
+    var listElementFreePages = document.getElementById("listFreePages");
+    var listElementGroups = document.getElementById("listGroups");
+    listElementFreePages.innerHTML = "";
+    listElementGroups.innerHTML = "";
 
     // Проверяем наличие элементов pages и groups
-    if ("pages" in storedObject) {
-      storedObject.pages.forEach(function (page) {
-        var listItem = document.createElement("li");
-        listItem.textContent = page.title;
-        listElement.appendChild(listItem);
-      });
-    }
 
     if ("groups" in storedObject) {
       for (var groupId in storedObject.groups) {
         var group = storedObject.groups[groupId];
         group.forEach(function (page) {
           var listItem = document.createElement("li");
-          listItem.textContent = page.title;
-          listElement.appendChild(listItem);
+          var listUrl = document.createElement("a");
+          
+          listUrl.href = page.geturl;
+          listUrl.textContent = page.title;
+          listItem.appendChild(listUrl);
+          listElementGroups.appendChild(listItem);
         });
       }
+    }
+    
+    if ("pages" in storedObject) {
+      storedObject.pages.forEach(function (page) {
+        var listItem = document.createElement("li");
+        var listUrl = document.createElement("a");
+
+        listUrl.href = page.geturl;
+        listUrl.textContent = page.title;
+        listItem.appendChild(listUrl);
+        listElementFreePages.appendChild(listItem);
+      });
     }
     console.log(storedObject);
   });
